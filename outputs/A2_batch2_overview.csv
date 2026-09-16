@@ -1,0 +1,5 @@
+Attribute,Attribute Type,N,Missing,Primary Summary
+SCHEDULED_TIME,Ratio,4349,0,"Mean 140.74 minutes, median 121, range 37 to 602"
+DISTANCE,Ratio,4349,0,"Mean 810.82, median 640, range 67 to 4983"
+DIVERTED,Nominal,4349,0,"Not diverted 4331 (99.59%), Diverted 18 (0.41%)"
+CANCELLED,Nominal,4349,0,"Not cancelled 4283 (98.48%), Cancelled 66 (1.52%)"
