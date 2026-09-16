@@ -1,0 +1,6 @@
+Attribute,N,Missing,Unique Categories,Mode,Mode Frequency,Mode Percentage
+O_CITY,4349,0,213,Chicago,345,7.93
+O_STATE,4349,0,52,TX,552,12.69
+D_CITY,4349,0,214,Atlanta,353,8.12
+D_STATE,4349,0,51,TX,577,13.27
+AIRLINE_NAME,4349,0,6,Southwest Airlines Co.,1207,27.75

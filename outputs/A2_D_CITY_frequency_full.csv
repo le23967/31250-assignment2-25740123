@@ -1,0 +1,215 @@
+Category,Frequency,Percentage
+Atlanta,353,8.12
+Chicago,280,6.44
+Houston,201,4.62
+Dallas-Fort Worth,196,4.51
+Los Angeles,175,4.02
+Denver,161,3.7
+San Francisco,121,2.78
+Minneapolis,119,2.74
+Phoenix,117,2.69
+Las Vegas,112,2.58
+Salt Lake City,112,2.58
+Detroit,107,2.46
+New York,101,2.32
+Newark,85,1.95
+Baltimore,82,1.89
+Orlando,80,1.84
+Arlington,64,1.47
+Miami,64,1.47
+San Diego,63,1.45
+Charlotte,62,1.43
+Dallas,62,1.43
+Boston,61,1.4
+Nashville,50,1.15
+Philadelphia,49,1.13
+Kansas City,48,1.1
+Tampa,44,1.01
+Oakland,43,0.99
+Seattle,43,0.99
+Ft. Lauderdale,42,0.97
+St Louis,39,0.9
+Austin,38,0.87
+Portland,38,0.87
+Cleveland,37,0.85
+San Jose,36,0.83
+Milwaukee,33,0.76
+New Orleans,33,0.76
+Santa Ana,33,0.76
+Sacramento,31,0.71
+San Antonio,31,0.71
+Indianapolis,29,0.67
+Chantilly,25,0.57
+Raleigh,25,0.57
+Burbank,21,0.48
+Columbus,20,0.46
+Windsor Locks,19,0.44
+Jacksonville,18,0.41
+Omaha,18,0.41
+Pittsburgh,18,0.41
+West Palm Beach,18,0.41
+Charleston,17,0.39
+Ft. Myers,16,0.37
+Ontario,15,0.34
+Tucson,15,0.34
+Tulsa,15,0.34
+Boise,14,0.32
+Honolulu,14,0.32
+Louisville,14,0.32
+Buffalo,13,0.3
+Reno,12,0.28
+Albuquerque,11,0.25
+Oklahoma City,11,0.25
+Albany,10,0.23
+Memphis,10,0.23
+San Juan,10,0.23
+El Paso,9,0.21
+Richmond,9,0.21
+Spokane,9,0.21
+Covington,8,0.18
+Lubbock,8,0.18
+Madison,8,0.18
+Providence,8,0.18
+Sioux Falls,8,0.18
+Knoxville,7,0.16
+Lexington,7,0.16
+Little Rock,7,0.16
+Manchester,7,0.16
+Rochester,7,0.16
+Savannah,7,0.16
+Akron,6,0.14
+Birmingham,6,0.14
+Colorado Springs,6,0.14
+Des Moines,6,0.14
+Eugene,6,0.14
+Fargo,6,0.14
+Grand Junction,6,0.14
+Jackson,6,0.14
+Kahului,6,0.14
+Norfolk,6,0.14
+Roanoke,6,0.14
+Santa Barbara,6,0.14
+Shreveport,6,0.14
+Wichita,6,0.14
+Asheville,5,0.11
+Baton Rouge,5,0.11
+Bozeman,5,0.11
+Charlotte Amalie,5,0.11
+Columbia,5,0.11
+Corpus Christi,5,0.11
+Great Falls,5,0.11
+Greer,5,0.11
+Islip,5,0.11
+Midland,5,0.11
+Mobile,5,0.11
+Montgomery,5,0.11
+Palm Springs,5,0.11
+Panama City,5,0.11
+South Bend,5,0.11
+Allentown,4,0.09
+Bakersfield,4,0.09
+Bismarck,4,0.09
+Cedar Rapids,4,0.09
+Dayton,4,0.09
+Fort Wayne,4,0.09
+Grand Rapids,4,0.09
+Greensboro,4,0.09
+Harlingen,4,0.09
+Lafayette,4,0.09
+McAllen,4,0.09
+Monterey,4,0.09
+Pensacola,4,0.09
+Peoria,4,0.09
+Sarasota,4,0.09
+White Plains,4,0.09
+Amarillo,3,0.07
+Anchorage,3,0.07
+Appleton,3,0.07
+Casper,3,0.07
+Charlottesville,3,0.07
+Daytona Beach,3,0.07
+Elmira,3,0.07
+Fresno,3,0.07
+Green Bay,3,0.07
+Huntsville,3,0.07
+Killeen,3,0.07
+Lake Charles,3,0.07
+Laredo,3,0.07
+Lincoln,3,0.07
+Melbourne,3,0.07
+Minot,3,0.07
+Moline,3,0.07
+Montrose,3,0.07
+Redmond,3,0.07
+San Luis Obispo,3,0.07
+Springfield,3,0.07
+Tallahassee,3,0.07
+Wilmington,3,0.07
+Aberdeen,2,0.05
+Augusta,2,0.05
+Brainerd,2,0.05
+Bristol,2,0.05
+Chattanooga,2,0.05
+Cody,2,0.05
+Erie,2,0.05
+Escanaba,2,0.05
+Evansville,2,0.05
+Flagstaff,2,0.05
+Grand Forks,2,0.05
+Gulfport-Biloxi,2,0.05
+Hailey,2,0.05
+Hancock,2,0.05
+Hays,2,0.05
+Jamestown,2,0.05
+Laramie,2,0.05
+Lihue,2,0.05
+Paducah,2,0.05
+Pocatello,2,0.05
+Rapid City,2,0.05
+Rock Springs,2,0.05
+Saginaw,2,0.05
+Traverse City,2,0.05
+Valdosta,2,0.05
+Waco,2,0.05
+Agana,1,0.02
+Alpena,1,0.02
+Beaumont/Port Arthur,1,0.02
+Billings,1,0.02
+Binghamton,1,0.02
+Bloomington,1,0.02
+Brownsville,1,0.02
+Butte,1,0.02
+Christiansted,1,0.02
+Devils Lake,1,0.02
+Dickinson,1,0.02
+Durango,1,0.02
+Eau Claire,1,0.02
+Fayetteville,1,0.02
+Flint,1,0.02
+Gillette,1,0.02
+Gunnison,1,0.02
+Harrisburg,1,0.02
+Hayden,1,0.02
+Hibbing,1,0.02
+Idaho Falls,1,0.02
+Iron Mountain/Kingsford,1,0.02
+Kailua/Kona,1,0.02
+Kalispell,1,0.02
+Key West,1,0.02
+Lansing,1,0.02
+Lawton,1,0.02
+Longview,1,0.02
+Medford,1,0.02
+Monroe,1,0.02
+New Bern,1,0.02
+Pasco,1,0.02
+Pellston,1,0.02
+Redding,1,0.02
+Santa Maria,1,0.02
+Syracuse,1,0.02
+Texarkana,1,0.02
+Twin Falls,1,0.02
+Valparaiso,1,0.02
+Vernal,1,0.02
+Wilkes-Barre/Scranton,1,0.02
+Yuma,1,0.02
