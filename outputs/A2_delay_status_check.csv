@@ -1,0 +1,3 @@
+Attribute,Missing,Missing and cancelled,Missing and diverted,Missing and neither,Cancelled with recorded value,All missing rows are cancelled,Missing rows equal all cancelled rows,Missing rows equal cancelled or diverted rows
+DEPARTURE_DELAY,61,61,0,0,5,True,False,False
+ARRIVAL_DELAY,84,66,18,0,0,False,False,True

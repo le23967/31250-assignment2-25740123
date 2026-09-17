@@ -1,0 +1,4 @@
+Attribute,Recorded N,Missing,Missing Percentage,Recorded Zero,Recorded Positive,Recorded Rows Equal ARRIVAL_DELAY >= 15
+AIR_SYSTEM_DELAY,827,3522,80.98,432,395,True
+SECURITY_DELAY,827,3522,80.98,823,4,True
+WEATHER_DELAY,827,3522,80.98,777,50,True
