@@ -1,0 +1,5 @@
+Attribute,Missing,Missing and cancelled,Missing and diverted,Missing and neither,Missing rows equal cancelled or diverted rows
+TAXI_OUT,65,65,0,0,False
+ELAPSED_TIME,84,66,18,0,True
+AIR_TIME,84,66,18,0,True
+TAXI_IN,67,66,1,0,False

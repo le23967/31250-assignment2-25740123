@@ -1,0 +1,16 @@
+Statistic,Original column,After removal
+Total rows,4349,4284
+Valid N,4284,4284
+Missing,65,0
+Missing percentage,1.49,0
+Mean,16.15,16.15
+Median,14,14
+Minimum,1,1
+Maximum,110,110
+Range,109,109
+Variance,79.76,79.76
+Standard deviation,8.93,8.93
+Q1,11,11
+Q3,18,18
+IQR,7,7
+Skewness,3.16,3.16
