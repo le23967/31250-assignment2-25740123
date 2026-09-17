@@ -1,0 +1,4 @@
+Attribute,N blanks missing,N blanks as zero,Mean blanks missing,Mean blanks as zero,SD blanks missing,SD blanks as zero,Mean fall percent
+AIR_SYSTEM_DELAY,827,4349,12.64,2.4,29.71,13.87,80.98
+SECURITY_DELAY,827,4349,0.07,0.01,1.29,0.56,80.98
+WEATHER_DELAY,827,4349,3.28,0.62,21.33,9.39,80.98

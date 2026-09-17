@@ -1,0 +1,7 @@
+Attribute,N removal,N imputed,Mean removal,Mean imputed,SD removal,SD imputed,Q1 removal,Q1 imputed,Q3 removal,Q3 imputed,Skewness removal,Skewness imputed,SD change percent
+TAXI_OUT,4284,4349,16.15,16.11,8.93,8.87,11.0,11.0,18.0,18.0,3.16,3.19,-0.71
+ELAPSED_TIME,4265,4349,135.39,135.01,72.0,71.35,83.0,83.0,165.0,165.0,1.44,1.46,-0.9
+AIR_TIME,4265,4349,111.76,111.38,69.5,68.88,61.0,62.0,141.0,140.0,1.45,1.48,-0.89
+TAXI_IN,4282,4349,7.49,7.47,6.57,6.52,4.0,4.0,8.0,8.0,9.75,9.82,-0.73
+DEPARTURE_DELAY,4288,4349,10.81,10.64,39.21,38.96,-4.0,-4.0,9.0,8.0,7.2,7.25,-0.64
+ARRIVAL_DELAY,4265,4349,5.41,5.21,41.6,41.22,-13.0,-13.0,8.0,8.0,6.44,6.5,-0.91
