@@ -1,0 +1,5 @@
+Attribute,Missing,Missing and cancelled,Missing and diverted,Missing and neither,Cancelled with recorded value,Diverted with recorded value
+DEPARTURE_TIME,61,61,0,0,5,18
+WHEELS_OFF,65,65,0,0,1,18
+WHEELS_ON,67,66,1,0,0,17
+ARRIVAL_TIME,67,66,1,0,0,17

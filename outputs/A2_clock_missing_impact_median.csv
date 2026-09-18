@@ -1,0 +1,5 @@
+Attribute,Missing,N removal,N imputed,Median fill time,Mean removal,Mean imputed,SD removal (minutes),SD imputed (minutes),Variance removal (minutes squared),Variance imputed (minutes squared),Q1 removal,Q1 imputed,Q3 removal,Q3 imputed,Skewness removal,Skewness imputed,SD change percent
+DEPARTURE_TIME,61,4288,4349,13:38,13:37,13:37,297.65,295.56,88596.06,87353.13,09:21,09:24,17:44,17:41,0.01,0.01,-0.7
+WHEELS_OFF,65,4284,4349,13:52,13:52,13:52,298.46,296.22,89076.71,87745.07,09:37,09:41,18:00,17:58,-0.01,-0.01,-0.75
+WHEELS_ON,67,4282,4349,15:15,15:01,15:02,314.57,312.14,98955.97,97433.7,10:59,11:03,19:19,19:13,-0.35,-0.35,-0.77
+ARRIVAL_TIME,67,4282,4349,15:20,15:05,15:05,317.31,314.86,100683.21,99135.35,11:04,11:07,19:23,19:20,-0.38,-0.39,-0.77

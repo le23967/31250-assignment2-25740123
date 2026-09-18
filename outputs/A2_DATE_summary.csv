@@ -1,0 +1,2 @@
+N,Missing,Earliest date,Latest date,Span in days,Mean date,Median date,Variance (days squared),Standard deviation (days),Q1 date,Q3 date,IQR (days),Skewness
+4349,0,01 January 2015,31 December 2015,364.0,22 June 2015,19 June 2015,10433.62,102.15,29 March 2015,03 September 2015,158.0,0.18

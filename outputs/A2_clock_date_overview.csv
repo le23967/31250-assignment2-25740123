@@ -1,0 +1,8 @@
+Attribute,Type,Valid N,Missing,Main Centre,Main Spread,Key Finding
+SCHEDULED_DEPARTURE,Interval (clock time),4349,0,mean 13:30; median 13:33,SD 291.07 min; IQR 505.0 min,HHMM converted to minutes after midnight; no missing values
+DEPARTURE_TIME,Interval (clock time),4288,61,mean 13:37; median 13:38,SD 297.65 min; IQR 503.0 min,HHMM converted to minutes after midnight; attribute-wise removal used for missing values
+WHEELS_OFF,Interval (clock time),4284,65,mean 13:52; median 13:52,SD 298.46 min; IQR 503.25 min,HHMM converted to minutes after midnight; attribute-wise removal used for missing values
+WHEELS_ON,Interval (clock time),4282,67,mean 15:01; median 15:15,SD 314.57 min; IQR 499.75 min,HHMM converted to minutes after midnight; attribute-wise removal used for missing values
+SCHEDULED_ARRIVAL,Interval (clock time),4349,0,mean 15:17; median 15:35,SD 303.11 min; IQR 490.0 min,HHMM converted to minutes after midnight; no missing values
+ARRIVAL_TIME,Interval (clock time),4282,67,mean 15:05; median 15:20,SD 317.31 min; IQR 499.0 min,HHMM converted to minutes after midnight; attribute-wise removal used for missing values
+DATE,Interval (calendar date),4349,0,mean 22 June 2015; median 19 June 2015,SD 102.15 days; IQR 158.0 days,October has zero records in this dataset
