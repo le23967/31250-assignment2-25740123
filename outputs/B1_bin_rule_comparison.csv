@@ -1,0 +1,9 @@
+Rule,Raw result,Integer bins,Equal-width empty-bin count,Short interpretation
+Square-root,65.306967469,66,12,Too many bins for this sample size; comparison only.
+Sturges,12.9787328172,13,0,13 bins; no empty equal-width bins.
+Rice,32.4341863416,33,4,33 bins; several empty equal-width bins.
+Scott,37.5162040901,38,4,38 bins; several empty equal-width bins.
+Freedman-Diaconis,57.6497885279,58,10,58 bins; many empty equal-width bins.
+Trial (10),,10,0,Nearby trial value for comparison.
+Trial (15),,15,0,Nearby trial value for comparison.
+Trial (20),,20,1,Nearby trial value for comparison.
