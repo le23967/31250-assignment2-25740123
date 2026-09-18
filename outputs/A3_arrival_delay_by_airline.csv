@@ -1,0 +1,7 @@
+Airline,Total Rows,Valid Arrival Delay,Missing,Median,Q1,Q3
+American Airlines Inc.,733,720,13,-4.0,-14.0,9.0
+Atlantic Southeast Airlines,521,506,15,-3.0,-11.0,10.75
+Delta Air Lines Inc.,839,832,7,-7.0,-15.25,3.0
+Skywest Airlines Inc.,569,558,11,-4.0,-13.0,10.0
+Southwest Airlines Co.,1207,1179,28,-4.0,-12.0,9.0
+United Air Lines Inc.,480,470,10,-6.0,-15.0,11.0

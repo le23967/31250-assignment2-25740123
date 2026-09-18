@@ -1,0 +1,3 @@
+Method,N,Silhouette,Cluster Sizes
+Primary complete-case k=4,4265,0.5582190133559005,"[15, 294, 827, 3129]"
+Temporary median-imputation k=4,4349,0.5577294625652746,"[15, 297, 835, 3202]"

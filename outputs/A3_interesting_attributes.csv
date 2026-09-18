@@ -1,0 +1,5 @@
+Attribute,Role in A3,Evidence,Reason selected
+DISTANCE,Route scale,Pearson and Spearman with AIR_TIME both about 0.98,Represents route length and pairs with AIR_TIME
+AIR_TIME,Airborne duration,Pearson and Spearman with DISTANCE both about 0.98,Represents airborne time linked to route scale
+DEPARTURE_DELAY,Schedule disruption at departure,Pearson with ARRIVAL_DELAY about 0.95; Spearman about 0.67,Captures departure disruption and the Pearson-Spearman contrast
+ARRIVAL_DELAY,Schedule disruption at arrival,Pearson with DEPARTURE_DELAY about 0.95; Spearman about 0.67,Primary delay outcome for outliers and airline comparison
