@@ -1,8 +1,12 @@
 """Build a clean Python code appendix PDF from the assignment notebook.
 
-Presentation-only elements (Markdown headings, soft wraps) are drawn outside
-the executable source. Notebook code cells are not rewritten. The Word report
-already supplies the appendix title, so this PDF does not repeat it.
+The appendix is code-focused. It renders:
+  1. exact non-empty code-cell source, in notebook order; and
+  2. short presentation-only section headings derived from recognised
+     assignment or notebook section labels (P0, A1 to A3, B1 to B4, C).
+
+Ordinary Markdown prose is never rendered. The Word report already supplies
+the appendix title, so this PDF does not repeat it.
 """
 
 from __future__ import annotations
@@ -35,6 +39,19 @@ HEADING_FONT_SIZE = 9
 LINE_GAP = 1.12
 MAX_CODE_WIDTH = PAGE_WIDTH - LEFT - RIGHT
 
+# Recognised assignment or notebook section labels only.
+# Matches headings such as "P0.1 ...", "A2. Summary Statistics", "B1 Binning".
+# Does not match ordinary prose or attribute-name headings such as "O_CITY".
+SECTION_HEADING_RE = re.compile(
+    r"^(?:"
+    r"P0(?:\.\d+)?"
+    r"|A[123](?:\.\d+)?"
+    r"|B[1-4](?:\.\d+)?"
+    r"|C(?:\.\d+)?"
+    r")(?:\s|\.|:|$)",
+    re.IGNORECASE,
+)
+
 # Restrained syntax colours
 COLOURS = {
     "default": Color(0.12, 0.12, 0.12),
@@ -47,6 +64,14 @@ COLOURS = {
     "operator": Color(0.25, 0.25, 0.25),
     "wrap": Color(0.55, 0.55, 0.55),
 }
+
+
+def is_recognised_section_heading(text: str) -> bool:
+    """True only for short assignment or notebook section labels."""
+    cleaned = re.sub(r"^#+\s*", "", text).strip()
+    if not cleaned:
+        return False
+    return bool(SECTION_HEADING_RE.match(cleaned))
 
 
 def _register_fonts() -> tuple[str, str]:
@@ -82,22 +107,31 @@ def _register_fonts() -> tuple[str, str]:
 
 
 def extract_notebook_blocks(notebook_path: Path) -> tuple[list[dict], list[str]]:
-    """Return presentation blocks and ordered exact code-cell sources."""
+    """Return code-focused blocks and ordered exact code-cell sources.
+
+    Ordinary Markdown prose is ignored. Only recognised section headings are
+    kept as presentation labels, and each distinct heading is emitted once
+    before the first following code cell.
+    """
     notebook = json.loads(notebook_path.read_text(encoding="utf-8"))
     blocks: list[dict] = []
     code_sources: list[str] = []
     pending_heading: str | None = None
+    last_emitted_heading: str | None = None
 
     for cell in notebook["cells"]:
         source = "".join(cell.get("source", []))
         if cell.get("cell_type") == "markdown":
             for line in source.splitlines():
-                if line.startswith("#"):
-                    pending_heading = re.sub(r"^#+\s*", "", line).strip()
+                if not line.startswith("#"):
+                    continue
+                heading = re.sub(r"^#+\s*", "", line).strip()
+                if is_recognised_section_heading(heading):
+                    pending_heading = heading
         elif cell.get("cell_type") == "code" and source.strip():
-            if pending_heading:
+            if pending_heading and pending_heading != last_emitted_heading:
                 blocks.append({"kind": "heading", "text": pending_heading})
-                pending_heading = None
+                last_emitted_heading = pending_heading
             blocks.append({"kind": "code", "source": source})
             code_sources.append(source)
     return blocks, code_sources
@@ -147,7 +181,6 @@ def soft_wrap_line(line: str, font_name: str, font_size: float, max_width: float
             piece = remaining
             remaining = ""
         else:
-            # Prefer a break near a space, otherwise hard-break by width.
             lo, hi = 1, len(remaining)
             fit = 1
             while lo <= hi:
@@ -173,14 +206,9 @@ def soft_wrap_line(line: str, font_name: str, font_size: float, max_width: float
 
 def highlight_source_lines(source: str, font_name: str, font_size: float) -> list[list[tuple[str, Color]]]:
     """Turn source into visually wrapped coloured runs. Soft wraps are presentation-only."""
-    # Preserve exact line content; do not rewrite executable structure.
     raw_lines = source.splitlines()
-    if source.endswith("\n"):
-        # trailing newline does not create an extra blank display line
-        pass
     display_rows: list[list[tuple[str, Color]]] = []
 
-    # Lex whole source so multi-line strings stay coherent, then map by line.
     tokens = list(lex(source, PythonLexer()))
     line_tokens: list[list[tuple[str, Color]]] = [[]]
     for ttype, value in tokens:
@@ -192,12 +220,9 @@ def highlight_source_lines(source: str, font_name: str, font_size: float) -> lis
             if part:
                 line_tokens[-1].append((part, colour))
 
-    # splitlines() drops a final empty line created by a trailing newline;
-    # align token lines to raw_lines length.
     while len(line_tokens) < len(raw_lines):
         line_tokens.append([])
     if len(line_tokens) > len(raw_lines) and raw_lines:
-        # trailing empty token line from final newline
         if not line_tokens[-1]:
             line_tokens.pop()
     if not raw_lines and source == "":
@@ -205,19 +230,15 @@ def highlight_source_lines(source: str, font_name: str, font_size: float) -> lis
 
     for idx, raw in enumerate(raw_lines):
         runs = line_tokens[idx] if idx < len(line_tokens) else [(raw, COLOURS["default"])]
-        # If lexing produced nothing for a blank line, keep an empty row.
         if not runs and raw == "":
             display_rows.append([])
             continue
-        # Rebuild plain text to soft-wrap, then re-apply colours by slicing runs.
         plain = "".join(text for text, _ in runs) if runs else raw
         pieces = soft_wrap_line(plain, font_name, font_size, MAX_CODE_WIDTH)
         if len(pieces) == 1 and pieces[0] == plain:
             display_rows.append(runs if runs else [(plain, COLOURS["default"])])
             continue
-        # Distribute original coloured runs across soft-wrapped pieces.
         flat = runs if runs else [(plain, COLOURS["default"])]
-        cursor = 0
         run_i = 0
         run_pos = 0
         for p_i, piece in enumerate(pieces):
@@ -242,8 +263,6 @@ def highlight_source_lines(source: str, font_name: str, font_size: float) -> lis
                     run_i += 1
                     run_pos = 0
             display_rows.append(out)
-            cursor += len(content)
-        _ = cursor  # presentation cursor only
     return display_rows
 
 
@@ -273,7 +292,6 @@ class AppendixBuilder:
     def draw_heading(self, text: str) -> None:
         needed = HEADING_FONT_SIZE + 6
         self.ensure_space(needed + self.line_height)
-        # Small gap before a heading when not at top of page
         if self.y < PAGE_HEIGHT - TOP - 1:
             self.y -= 3
             self.ensure_space(needed + self.line_height)
@@ -301,7 +319,6 @@ class AppendixBuilder:
                 self.c.drawString(x, baseline, text)
                 x += _string_width(text, self.mono, CODE_FONT_SIZE)
             self.y -= self.line_height
-        # Compact gap after each code cell
         self.y -= 2
 
     def build(self, blocks: list[dict]) -> None:
@@ -330,7 +347,6 @@ def main() -> None:
             "Source integrity failure: renderer code does not match notebook code cells."
         )
 
-    # Guard against accidental artificial content in renderer code input.
     joined = "\n".join(renderer_sources)
     forbidden = [
         "Appendix A, page",
@@ -346,7 +362,9 @@ def main() -> None:
     builder = AppendixBuilder(OUTPUT_PDF)
     builder.build(blocks)
 
+    heading_count = sum(1 for b in blocks if b["kind"] == "heading")
     print(f"non_empty_code_cells: {len(notebook_sources)}")
+    print(f"section_headings: {heading_count}")
     print(f"notebook_sha256: {nb_hash}")
     print(f"renderer_sha256: {rd_hash}")
     print(f"output: {OUTPUT_PDF}")
