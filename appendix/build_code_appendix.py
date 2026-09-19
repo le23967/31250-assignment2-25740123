@@ -1,7 +1,8 @@
 """Build a clean Python code appendix PDF from the assignment notebook.
 
-Presentation-only elements (title, Markdown headings, soft wraps) are drawn
-outside the executable source. Notebook code cells are not rewritten.
+Presentation-only elements (Markdown headings, soft wraps) are drawn outside
+the executable source. Notebook code cells are not rewritten. The Word report
+already supplies the appendix title, so this PDF does not repeat it.
 """
 
 from __future__ import annotations
@@ -14,7 +15,7 @@ from pathlib import Path
 from pygments import lex
 from pygments.lexers import PythonLexer
 from pygments.token import Comment, Keyword, Name, Number, Operator, String, Text, Token
-from reportlab.lib.colors import Color, black, white
+from reportlab.lib.colors import Color, white
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
@@ -29,10 +30,8 @@ LEFT = 36
 RIGHT = 36
 TOP = 32
 BOTTOM = 28
-TITLE = "Appendix A. Python Code"
 CODE_FONT_SIZE = 7.6
 HEADING_FONT_SIZE = 9
-TITLE_FONT_SIZE = 12
 LINE_GAP = 1.12
 MAX_CODE_WIDTH = PAGE_WIDTH - LEFT - RIGHT
 
@@ -255,7 +254,6 @@ class AppendixBuilder:
         self.c = canvas.Canvas(str(output_path), pagesize=A4)
         self.y = PAGE_HEIGHT - TOP
         self.page_started = False
-        self.title_drawn = False
         self.line_height = CODE_FONT_SIZE * LINE_GAP
 
     def new_page(self) -> None:
@@ -271,14 +269,6 @@ class AppendixBuilder:
             self.new_page()
         if self.y - height < BOTTOM:
             self.new_page()
-
-    def draw_title(self) -> None:
-        self.ensure_space(TITLE_FONT_SIZE + 10)
-        self.c.setFillColor(black)
-        self.c.setFont(self.sans, TITLE_FONT_SIZE)
-        self.c.drawString(LEFT, self.y - TITLE_FONT_SIZE, TITLE)
-        self.y -= TITLE_FONT_SIZE + 8
-        self.title_drawn = True
 
     def draw_heading(self, text: str) -> None:
         needed = HEADING_FONT_SIZE + 6
@@ -316,7 +306,6 @@ class AppendixBuilder:
 
     def build(self, blocks: list[dict]) -> None:
         self.new_page()
-        self.draw_title()
         for block in blocks:
             if block["kind"] == "heading":
                 self.draw_heading(block["text"])
